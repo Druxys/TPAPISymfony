@@ -10,11 +10,8 @@ class RegisterController extends AbstractController
     /**
      * @Route("/register", name="register")
      */
-    public function index()
+    public function registerUser()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/RegisterController.php',
-        ]);
+
     }
 }
