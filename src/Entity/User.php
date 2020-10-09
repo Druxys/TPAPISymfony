@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class User
 {
@@ -38,10 +39,13 @@ class User
     private $updated_at;
 
 
-    public function __construct() {
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function setDateForCreatedAt() {
         $this->created_at = new \DateTime('now');
     }
-
 
     public function getId(): ?int
     {
