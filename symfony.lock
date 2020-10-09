@@ -1,4 +1,7 @@
 {
+    "cocur/slugify": {
+        "version": "v4.0.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
     },
@@ -190,6 +193,9 @@
             "./.env"
         ]
     },
+    "symfony/form": {
+        "version": "v4.4.15"
+    },
     "symfony/framework-bundle": {
         "version": "4.4",
         "recipe": {
@@ -223,6 +229,9 @@
     "symfony/inflector": {
         "version": "v4.4.15"
     },
+    "symfony/intl": {
+        "version": "v4.4.15"
+    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -235,8 +244,14 @@
     "symfony/mime": {
         "version": "v4.4.15"
     },
+    "symfony/options-resolver": {
+        "version": "v4.4.15"
+    },
     "symfony/orm-pack": {
         "version": "v2.0.0"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.18.1"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.18.1"
@@ -255,6 +270,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.18.1"
+    },
+    "symfony/process": {
+        "version": "v4.4.15"
     },
     "symfony/property-access": {
         "version": "v4.4.15"
@@ -303,11 +321,36 @@
     "symfony/stopwatch": {
         "version": "v4.4.15"
     },
+    "symfony/translation-contracts": {
+        "version": "v2.3.0"
+    },
+    "symfony/validator": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "d902da3e4952f18d3bf05aab29512eb61cabd869"
+        },
+        "files": [
+            "./config/packages/test/validator.yaml",
+            "./config/packages/validator.yaml"
+        ]
+    },
     "symfony/var-dumper": {
         "version": "v4.4.15"
     },
     "symfony/var-exporter": {
         "version": "v4.4.15"
+    },
+    "symfony/web-server-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "dae9b39fd6717970be7601101ce5aa960bf53d9a"
+        }
     },
     "symfony/yaml": {
         "version": "v4.4.15"
