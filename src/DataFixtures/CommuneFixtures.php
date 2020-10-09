@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Commune;
+use App\Entity\Media;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
@@ -27,6 +28,14 @@ class CommuneFixtures extends Fixture
             $commune->setCodeDepartement($i + 5);
             $commune->setCodeRegion($i);
             $commune->setPopulation(random_int(50, 10000000));
+            if (mt_rand(0,1) === 1){
+                $media = new Media();
+                $media->setCommune($commune)
+                    ->setImage($faker->imageUrl(640,480,'city'))
+                    ->setVideo($faker->file('D:\projects\tmp','.\public\tmp'))
+                    ->setArticle($faker->domainName);
+                $manager->persist($media);
+            }
             $manager->persist($commune);
         }
 
