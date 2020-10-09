@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\CommuneRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CommuneRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Commune
 {
@@ -46,6 +48,21 @@ class Commune
      * @ORM\Column(type="integer")
      */
     private $population;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function setSlugValue() {
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->getNom());
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +137,18 @@ class Commune
     public function setPopulation(int $population): self
     {
         $this->population = $population;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
